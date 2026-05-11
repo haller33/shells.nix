@@ -6,12 +6,19 @@ let
     nspr glib nss openssl zlib cups
     xorg.libX11 xorg.libXext xorg.libXrender xorg.libXcomposite xorg.libXdamage xorg.libXfixes
     xorg.libXi xorg.libXrandr xorg.libXcursor xorg.libXinerama
-    mesa                         # libgbm.so.1, libEGL, libGL
-    libdrm                       # often needed with mesa
-    xorg.libxcb                  # low-level X11 protocol (many deps)
-    udev nodejs
+    mesa
+    libdrm
+    xorg.libxcb
+    udev nodejs ecasound
     alsa-lib
-    # Add more as you discover them (e.g., wayland, pulseaudio, etc.)
+    # Additional safe libraries
+    glibc curl icu libunwind libuuid lttng-ust krb5
+    dbus expat libxkbcommon at-spi2-atk cairo pango
+    systemd
+    fontconfig
+    libdbusmenu wayland libsecret
+    xorg.libXScrnSaver xorg.libxshmfence xorg.libxkbfile
+    libglvnd
   ];
 in
 pkgs.mkShell {
